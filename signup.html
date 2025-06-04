@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup page</title>
+        <link rel="stylesheet" href="singup.css">
+    </head>
+    <style>
+     .ab{
+      color:red;
+      background-color: red;
+     }
+     .c{
+      padding: 10px;
+     }
+    </style>
+<body>
+<div class="form-wrapper">
+  <div class="c">
+  <a href="movie.html"><img src="9w99NW1f.jpg" height="50" /></a>
+  </div>
+  <h2 style="color:red">Register</h2>
+  <form action="new.php" method="post" onsubmit="return validateForm()">
+
+    <div class="form-control">
+        <input type="text"  name="name"  min="8" max="40" required>
+        <label>Name</label>
+      </div>
+      <div class="form-control">
+        <input type="DATE"  name="date"  required>
+        <label></label>
+      </div>
+      
+
+    <div class="form-control">
+      <input type="email"   id="email" name="email" pattern="([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})" min="10" max="50" required>
+      <label>Email</label>
+    </div>
+
+    <div class="form-control">
+        <input type="number" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" min="10" required>
+      
+      <label>Phone Number</label>
+      </div>
+    <div class="form-control">
+      <input type="password" id="password" name="password" pattern="(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.\W).{8,}" title="Password must contain at least one number, one uppercase letter, one lowercase letter, one special character, and at least 8 or more characters" required>
+      <label> Password</label>
+    </div>
+
+    <div class="form-control">
+        <input type="password" id="confirm_password" name="confirm_password" pattern="(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.\W).{8,}" title="Password must contain at least one number, one uppercase letter, one lowercase letter, one special character, and at least 8 or more characters" required>
+        <label>Confirm Password</label>
+      </div>
+    <button type="submit" onclick="validate()">Send</button>
+  
+
+    </div>
+    <div class="form-control">
+    </div>
+  </form>
+ 
+</div>
+<script>
+
+
+    function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirm_password = document.getElementById("confirm_password").value;
+    
+        // Check if password fields are empty
+        if (password.trim() == '' || confirm_password.trim() == '') {
+            alert("Password fields cannot be empty");
+            return false;
+        }
+    
+        // Check if passwords match
+        if (password != confirm_password) {
+            alert("Password and Cnfirm password should be same.");
+            return false;
+        }
+    
+       
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters long");
+            return false;
+        }
+    
+      
+        return true;
+    }
+
+    function validate(){
+      var ei=document.getElementById("email").value
+      var refl=/[A-Z]/
+      var reu=/\w/
+      var repm=/\d/
+      var reei=/[a-zA-Z0-9]@[a-z]*.com/
+      if(!reei.test(ei)){
+        alert("Check your email id");
+      }
+
+
+    }
+    
+</script>
+<!-- partial -->
+  
+</body>
+</html>
